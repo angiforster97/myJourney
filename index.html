@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Journey — Angelica Forster</title>
+<meta name="description" content="My Journey — a story in ten chapters and paintings by Angelica Forster: from a forest in Upper Austria, across Latin America, and back.">
+<meta property="og:title" content="My Journey — Angelica Forster">
+<meta property="og:description" content="From a forest in Upper Austria, across Latin America, and back. A story in ten chapters and paintings.">
+<meta property="og:image" content="images/hero-hammock.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%231b4b63'/%3E%3Cpath d='M12 30 Q32 52 52 30' stroke='%23bfe3e8' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#10283a; --ink-soft:#40586a; --muted:#6c8191;
+  --paper:#f7fafb; --paper-2:#eaf2f4; --line:#d3e1e6;
+  --sea:#1b4b63; --sea-2:#2b7a8c; --foam:#bfe3e8; --leaf:#5f8f55;
+  --serif:'Source Serif 4',Georgia,serif; --display:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:19px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit}
+
+/* top bar */
+.bar{position:fixed;inset:0 0 auto 0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px clamp(16px,4vw,48px);font-family:var(--sans);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#fff;transition:background .3s,color .3s,box-shadow .3s}
+.bar.solid{background:rgba(247,250,251,.92);backdrop-filter:blur(10px);color:var(--ink);box-shadow:0 1px 0 var(--line)}
+.bar a{text-decoration:none}
+.bar:not(.solid){text-shadow:0 1px 8px rgba(0,0,0,.45)}
+section[id]{scroll-margin-top:56px}
+.bar nav{display:flex;gap:22px}
+.bar .name{font-weight:600}
+.progress{position:fixed;top:0;left:0;height:3px;background:var(--sea-2);z-index:21;width:0}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:grid;grid-template-columns:1.05fr .95fr;background:var(--sea);color:#fff;overflow:hidden}
+.hero-text{padding:clamp(110px,14vh,170px) clamp(16px,6vw,96px) 72px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.kicker{font-family:var(--sans);font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--foam);margin:0 0 22px}
+.hero h1{font-family:var(--display);font-weight:300;font-size:clamp(64px,10vw,148px);line-height:.92;margin:0 0 28px;letter-spacing:-.02em}
+.hero h1 em{font-style:italic;color:var(--foam)}
+.hero .lede{font-size:clamp(19px,1.6vw,23px);max-width:30ch;color:#dcebef;margin:0 0 40px;font-style:italic}
+.cta{display:inline-flex;align-items:center;gap:12px;font-family:var(--sans);font-size:14px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--sea);background:#fff;padding:15px 26px;border-radius:999px;text-decoration:none;width:max-content;transition:transform .2s}
+.cta:hover{transform:translateY(-2px)}
+.hero-art{position:relative;min-height:60vh}
+.hero-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.hero-art::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--sea) 0%,rgba(27,75,99,0) 28%);z-index:1}
+.hero-art .sig{position:absolute;right:20px;bottom:16px;z-index:2;font-family:var(--sans);font-size:12px;letter-spacing:.08em;color:#fff;background:rgba(16,40,58,.55);padding:6px 12px;border-radius:999px}
+.scroll-hint{position:absolute;left:clamp(16px,6vw,96px);bottom:28px;font-family:var(--sans);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--foam);z-index:2}
+
+/* prologue */
+.prologue{max-width:760px;margin:0 auto;padding:120px 24px 40px;text-align:center}
+.prologue p{font-family:var(--display);font-weight:300;font-size:clamp(26px,3.2vw,38px);line-height:1.35;margin:0;color:var(--ink)}
+.prologue p em{color:var(--sea-2)}
+
+/* route */
+.route{padding:40px clamp(16px,4vw,48px) 100px}
+.route ol{list-style:none;margin:0 auto;padding:0;max-width:1200px;display:grid;grid-template-columns:repeat(10,1fr);position:relative}
+.route ol::before{content:"";position:absolute;left:5%;right:5%;top:9px;border-top:2px dashed var(--foam)}
+.route li a{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;text-decoration:none;padding:0 4px}
+.route .dot{width:20px;height:20px;border-radius:50%;background:var(--paper);border:3px solid var(--sea-2);position:relative;z-index:1;transition:background .2s,transform .2s}
+.route a:hover .dot{background:var(--sea-2);transform:scale(1.15)}
+.route .r-num{font-family:var(--display);font-style:italic;color:var(--sea-2);font-size:18px;line-height:1}
+.route .r-place{font-family:var(--sans);font-size:12px;line-height:1.35;color:var(--ink-soft)}
+
+/* chapters */
+.chapter{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);max-width:1280px;margin:0 auto;padding:110px clamp(16px,4vw,48px);border-top:1px solid var(--line);align-items:start}
+.chapter{grid-template-areas:"media head" "media body";grid-template-rows:auto 1fr;row-gap:0}
+.chapter.flip{grid-template-areas:"head media" "body media"}
+.ch-media{grid-area:media;align-self:start}.ch-head{grid-area:head}.ch-text{grid-area:body}
+.ch-media{position:sticky;top:90px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ch-media .fig:first-child{grid-column:1/-1}
+.ch-media .fig:only-child{grid-column:1/-1}
+.ch-media .fig:first-child .zoom img{max-height:68vh;object-fit:cover;object-position:center 20%}
+.fig,.g{margin:0}
+.zoom{display:block;width:100%;padding:0;border:0;background:var(--paper-2);cursor:zoom-in;border-radius:6px;overflow:hidden}
+.zoom img{width:100%;height:auto;transition:transform .6s ease}
+.zoom:hover img{transform:scale(1.03)}
+.ch-media .fig:not(:first-child) .zoom img{aspect-ratio:1/1;object-fit:cover}
+figcaption{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin-top:8px;letter-spacing:.02em}
+.ch-num{font-family:var(--sans);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--sea-2);margin:0 0 14px;font-weight:600}
+.ch-num span{color:var(--muted);font-weight:500}
+.ch-head h2{font-family:var(--display);font-weight:300;font-size:clamp(38px,4.4vw,60px);line-height:1.04;margin:0 0 28px;letter-spacing:-.015em}
+blockquote{margin:0 0 36px;padding:4px 0 4px 22px;border-left:3px solid var(--leaf);font-family:var(--display);font-style:italic;font-weight:300;font-size:clamp(22px,2vw,27px);line-height:1.4;color:var(--sea)}
+.story p{margin:0 0 1em;max-width:62ch}
+.story p.beat{margin-bottom:.55em}
+.story p.blank{height:1px;width:140px;background:var(--ink-soft);margin:.4em 0 1.4em}
+.story strong{font-weight:600;color:var(--sea)}
+details.more summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-size:14px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--sea-2);padding:12px 0;margin-top:6px}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::after{content:"";width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-3px);transition:transform .2s}
+details.more[open] summary::after{transform:rotate(-135deg) translateY(-1px)}
+details.more .close-l,details.more[open] .open-l{display:none}
+details.more[open] .close-l{display:inline}
+details.more[open] summary{order:2}
+details.more[open] .story{animation:fade .5s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* gallery */
+.gallery{background:var(--sea);color:#fff;padding:110px clamp(16px,4vw,48px)}
+.gallery-inner{max-width:1280px;margin:0 auto}
+.gallery h2{font-family:var(--display);font-weight:300;font-size:clamp(40px,5vw,64px);margin:0 0 12px}
+.gallery .sub{color:#cfe2e7;font-style:italic;margin:0 0 48px;max-width:52ch}
+.grid{columns:4 240px;column-gap:16px}
+.g{break-inside:avoid;margin-bottom:16px}
+.g .zoom{background:#173f54}
+.g figcaption{color:var(--foam)}
+
+/* end */
+.end{text-align:center;padding:130px 24px 90px;max-width:820px;margin:0 auto}
+.end p.big{font-family:var(--display);font-weight:300;font-size:clamp(30px,4vw,48px);line-height:1.2;margin:0 0 26px}
+.end p.big em{color:var(--sea-2)}
+.end .by{font-family:var(--sans);font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+footer{font-family:var(--sans);font-size:13px;color:var(--muted);text-align:center;padding:28px 16px 40px;border-top:1px solid var(--line)}
+
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(10,26,38,.94);display:none;align-items:center;justify-content:center;z-index:50;padding:24px;flex-direction:column;gap:14px}
+.lb.open{display:flex}
+.lb img{max-height:84vh;max-width:94vw;width:auto;border-radius:4px}
+.lb p{color:#cfe2e7;font-family:var(--sans);font-size:14px;margin:0}
+.lb .x{position:absolute;top:14px;right:18px;background:none;border:0;color:#fff;font-size:34px;cursor:pointer;line-height:1}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* responsive */
+@media (max-width:980px){
+  .route ol{grid-template-columns:repeat(5,1fr);row-gap:28px}
+  .route ol::before{display:none}
+}
+@media (max-width:860px){
+  body{font-size:18px}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-art{min-height:72vh;order:-1}
+  .hero-art::before{background:linear-gradient(180deg,rgba(27,75,99,.0) 55%,var(--sea) 100%)}
+  .hero-text{padding:24px 16px 56px}
+  .scroll-hint{display:none}
+  .bar{color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.35)}
+  .bar.solid{text-shadow:none}
+  .bar nav{display:none}
+  .chapter{grid-template-columns:1fr;padding:72px 16px;gap:28px}
+  .chapter,.chapter.flip{grid-template-areas:"head" "media" "body";grid-template-rows:auto}
+  .ch-media{position:static}
+  .prologue{padding:80px 16px 24px}
+  .route{padding:32px 16px 64px}
+  .route ol{grid-template-columns:1fr;row-gap:0;max-width:420px}
+  .route ol::before{display:block;left:9px;right:auto;top:10px;bottom:10px;border-top:0;border-left:2px dashed var(--foam)}
+  .route li a{flex-direction:row;text-align:left;gap:14px;padding:9px 0}
+  .route .r-num{width:34px}
+  .gallery{padding:72px 16px}
+  .grid{columns:2 140px;column-gap:10px}
+  .g{margin-bottom:10px}
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="bar" id="bar">
+  <a class="name" href="#top">Angelica Forster</a>
+  <nav><a href="#route">The route</a><a href="#ch1">Story</a><a href="#sketchbook">Sketchbook</a></nav>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="hero-text">
+    <p class="kicker">A story in ten chapters &amp; paintings</p>
+    <h1>My<br><em>Journey</em></h1>
+    <p class="lede">From a forest in Upper Austria, across Latin America, and back again.</p>
+    <a class="cta" href="#ch1">Begin the journey <span aria-hidden="true">↓</span></a>
+  </div>
+  <div class="hero-art">
+    <img src="images/hero-hammock.jpg" alt="Watercolour by Angelica Forster: a woman in a blue hammock between palm trees, painting the sea" fetchpriority="high">
+    <span class="sig">Watercolour · Angelica Forster</span>
+  </div>
+  <span class="scroll-hint">Scroll</span>
+</section>
+
+<section class="prologue reveal">
+  <p>Travel did not give me answers.<br>It made some of my questions <em>obsolete.</em></p>
+</section>
+
+<section class="route reveal" id="route" aria-label="The route">
+  <ol><li><a href="#ch1"><span class="dot"></span><span class="r-num">I</span><span class="r-place">Upper Austria</span></a></li><li><a href="#ch2"><span class="dot"></span><span class="r-num">II</span><span class="r-place">Art school · Stage design</span></a></li><li><a href="#ch3"><span class="dot"></span><span class="r-num">III</span><span class="r-place">Málaga → Austria</span></a></li><li><a href="#ch4"><span class="dot"></span><span class="r-num">IV</span><span class="r-place">Panama</span></a></li><li><a href="#ch5"><span class="dot"></span><span class="r-num">V</span><span class="r-place">Colombia · The Amazon</span></a></li><li><a href="#ch6"><span class="dot"></span><span class="r-num">VI</span><span class="r-place">Peru · Bolivia · Argentina</span></a></li><li><a href="#ch7"><span class="dot"></span><span class="r-num">VII</span><span class="r-place">Back to Austria</span></a></li><li><a href="#ch8"><span class="dot"></span><span class="r-num">VIII</span><span class="r-place">Mexico</span></a></li><li><a href="#ch9"><span class="dot"></span><span class="r-num">IX</span><span class="r-place">Mexico → Europe</span></a></li><li><a href="#ch10"><span class="dot"></span><span class="r-num">X</span><span class="r-place">Europe · Home</span></a></li></ol>
+</section>
+
+
+<section class="chapter  reveal" id="ch1">
+  <div class="ch-media"><figure class="fig"><button class="zoom" aria-label="Enlarge: Summer in the garden, Upper Austria"><img src="images/ch1-childhood.jpg" alt="Summer in the garden, Upper Austria" loading="lazy" decoding="async"></button><figcaption>Summer in the garden, Upper Austria</figcaption></figure><figure class="fig"><button class="zoom" aria-label="Enlarge: Löwenzahn — ink &amp; watercolour"><img src="images/ch1-dandelion.jpg" alt="Löwenzahn — ink &amp; watercolour" loading="lazy" decoding="async"></button><figcaption>Löwenzahn — ink &amp; watercolour</figcaption></figure><figure class="fig"><button class="zoom" aria-label="Enlarge: Trees — watercolour"><img src="images/ch1-trees.jpg" alt="Trees — watercolour" loading="lazy" decoding="async"></button><figcaption>Trees — watercolour</figcaption></figure></div>
+  <div class="ch-head">
+    <p class="ch-num">Chapter I · <span>Upper Austria</span></p>
+    <h2>Before I Knew I Was Looking</h2>
+    <blockquote>Maybe I was searching for that child again.</blockquote>
+  </div>
+  <div class="ch-text">
+    <div class="story"><p>I grew up at the end of a street in a small town in Upper Austria.</p><p class="beat">Behind our house was the forest.</p><p>As a child, I did not think of this as beautiful. Beauty is something we learn to name later, often when we have already lost it. The forest was simply there. It was the natural extension of our garden, our playground, perhaps even of ourselves.</p><p>We built entire towns out of branches. We followed ants without needing to know where they were going. I collected flowers for my mother and made sculptures from whatever I found in the grass.</p><p class="beat">Hours disappeared this way.</p><p>Children possess a strange ability that adults spend enormous amounts of money trying to recover. We call it mindfulness now. We download applications for it. We travel to retreats, sit cross-legged in expensive silence and learn how to concentrate on our breathing.</p><p class="beat">Back then, I simply sat in the grass.</p><p class="beat">There was no purpose.</p><p>That may have been the most important part.</p></div>
+    <details class="more"><summary><span class="open-l">Continue reading</span><span class="close-l">Show less</span></summary><div class="story"><p>Nobody had explained productivity to me yet. A flower did not have to become something useful. A branch could become a house and then become a branch again. The value of an afternoon was not measured by what remained from it.</p><p>When I created something with my hands, the border between myself and the world became thinner. I forgot time. I forgot myself.</p><p>Perhaps this is what making art was before I knew the word <em>art</em>.</p><p class="beat">I painted, too.</p><p>Not because I wanted to become an artist. Children rarely need identities for the things they love. I painted because there were feelings inside me and colors seemed to understand them.</p><p class="beat">And I felt everything.</p><p class="beat">Joy was enormous.</p><p class="beat">Sadness was enormous.</p><p>I laughed without wondering whether I was too loud. I cried without being embarrassed by the evidence of having cried.</p><p>Every feeling entered the room like weather.</p><p class="beat">And then it passed.</p><p>Nobody had yet taught me that some emotions should be hidden, that some personalities should become smaller, that some versions of ourselves make other people uncomfortable.</p><p class="beat">That education would come later.</p><p>Growing up is partly the process of discovering the invisible architecture of the world: expectations, hierarchies, manners, careers, status, money, attractiveness, usefulness.</p><p>Slowly, we begin watching ourselves from the outside.</p><p class="beat">Do I belong here?</p><p class="beat">Am I doing this correctly?</p><p class="beat">What do they think of me?</p><p>The child picking flowers does not ask these questions.</p><p class="beat">She picks the flower.</p><p>Sometimes I wonder whether my entire journey began there, although I could not possibly have known it.</p><p>Maybe I did not spend the following years searching for another country or another profession or another version of myself.</p><p>Maybe I was searching for that child again.</p><p>The one who knew how to disappear into the world without first asking for permission.</p></div></details>
+  </div>
+</section>
+<section class="chapter flip reveal" id="ch2">
+  <div class="ch-media"><figure class="fig"><button class="zoom" aria-label="Enlarge: The art-school years"><img src="images/ch2-portrait.jpg" alt="The art-school years" loading="lazy" decoding="async"></button><figcaption>The art-school years</figcaption></figure><figure class="fig"><button class="zoom" aria-label="Enlarge: Skulls — mixed media"><img src="images/ch2-skulls.jpg" alt="Skulls — mixed media" loading="lazy" decoding="async"></button><figcaption>Skulls — mixed media</figcaption></figure><figure class="fig"><button class="zoom" aria-label="Enlarge: Skull singing — ink"><img src="images/ch2-skull-singing.jpg" alt="Skull singing — ink" loading="lazy" decoding="async"></button><figcaption>Skull singing — ink</figcaption></figure></div>
+  <div class="ch-head">
+    <p class="ch-num">Chapter II · <span>Art school · Stage design</span></p>
+    <h2>The Education of Becoming Someone</h2>
+    <blockquote>Art gave confusion somewhere to go.</blockquote>
+  </div>
+  <div class="ch-text">
+    <div class="story"><p>Then adolescence arrived and suddenly there were mirrors everywhere.</p><p class="beat">Not only actual mirrors.</p><p class="beat">Other people became mirrors.</p><p>School became one. Friends became one. Boys became one. My own body became one.</p><p>I had always observed the world, but now I started observing myself inside it.</p><p class="beat">That changed everything.</p><p>At art school, I found a language for the chaos.</p><p>My paintings became darker. Paint was spilled rather than carefully applied. Linkin Park lyrics appeared between colors. Music came loudly from my room.</p><p>My poor mother and siblings lived inside the weather system of my puberty.</p></div>
+    <details class="more"><summary><span class="open-l">Continue reading</span><span class="close-l">Show less</span></summary><div class="story"><p>I was trying to understand myself through whatever materials were available.</p><p class="beat">Paint.</p><p class="beat">Music.</p><p class="beat">Anger.</p><p class="beat">Sadness.</p><p class="beat">Drama.</p><p class="beat">Art gave confusion somewhere to go.</p><p>But eventually school approached its end and society presented me with a question that seems completely reasonable until you really think about it:</p><p class="beat"><strong>What do you want to be?</strong></p><p>At eighteen or nineteen, when we barely understand who we are, we are asked to select the person we intend to become.</p><p class="beat">Choose a profession.</p><p class="beat">Choose a city.</p><p class="beat">Choose a direction.</p><p class="beat">Begin.</p><p>There is something almost absurd about this ritual. Childhood is full of possibility, then adulthood arrives carrying forms to fill out.</p><p class="beat">Occupation:</p><p class="blank" aria-hidden="true"></p><p>As though a human life could fit into the empty space.</p><p>I knew only one thing with some certainty.</p><p class="beat">I loved art.</p><p>But studying art felt frighteningly undefined. I wanted passion, but apparently I also wanted something that could be explained at a dinner table.</p><p class="beat">So I chose stage design.</p><p class="beat">The theatre seemed perfect.</p><p>Worlds created from nothing. Light. Darkness. Illusion. Emotion. Drama.</p><p class="beat">Especially drama.</p><p>There was enough of that inside me already.</p><p>I imagined theatre as a place where imagination had finally defeated ordinary life.</p><p>Instead, I discovered something that would follow me for years:</p><p class="beat">even creativity has institutions.</p><p>The theatre I encountered carried centuries on its shoulders. Tradition mattered. Technique mattered. Professors knew what was good, what was bad, what belonged and what did not.</p><p class="beat">There were rules.</p><p>Unfortunately, following rules was not one of my great passions.</p><p>I challenged professors. I defended ideas I wasn't even certain about myself. I wanted to prove that my way had value.</p><p>But there is a dangerous moment in the development of any young person when criticism of what we make becomes criticism of who we are.</p><p class="beat">My art was still developing.</p><p class="beat">So was I.</p><p class="beat">I could not separate the two.</p><p>If my taste was wrong, perhaps <em>I</em> was wrong.</p><p>If my instincts were immature, which instincts could I trust?</p><p>I had entered university hoping to develop an artistic identity.</p><p class="beat">Instead, I began losing my own voice.</p><p>And when you no longer trust the voice inside you, the voices outside become unbearably loud.</p></div></details>
+  </div>
+</section>
+<section class="chapter  reveal" id="ch3">
+  <div class="ch-media"><figure class="fig"><button class="zoom" aria-label="Enlarge: Málaga — ink sketch"><img src="images/ch3-malaga.jpg" alt="Málaga — ink sketch" loading="lazy" decoding="async"></button><figcaption>Málaga — ink sketch</figcaption></figure><figure class="fig"><button class="zoom" aria-label="Enlarge: Hands — ink &amp; watercolour"><img src="images/ch3-hands.jpg" alt="Hands — ink &amp; watercolour" loading="lazy" decoding="async"></button><figcaption>Hands — ink &amp; watercolour</figcaption></figure></div>
+  <div class="ch-head">
+    <p class="ch-num">Chapter III · <span>Málaga → Austria</span></p>
+    <h2>The Weight of Fitting In</h2>
+    <blockquote>Sometimes escape and courage are the same movement seen from opposite sides.</blockquote>
+  </div>
+  <div class="ch-text">
+    <div class="story"><p class="beat">For one summer, I escaped to Málaga.</p><p class="beat">Officially, I went to learn Spanish.</p><p>Unofficially, perhaps I was already practicing leaving.</p><p>There was beach volleyball. Salsa. Heat. Bodies moving differently than they moved at home. Nights that seemed to begin when Austrian evenings would already have been thinking about tomorrow.</p><p class="beat">Some Spanish stayed with me.</p><p class="beat">Something else stayed too.</p><p>The sensation that life could be arranged differently.</p><p>Culture is invisible when you live inside your own. You believe people simply <em>are</em> this way. Dinner happens at this hour. Success looks like this. A responsible person behaves like that.</p><p>Then you go somewhere else and discover that many of the things you considered reality were only agreements.</p></div>
+    <details class="more"><summary><span class="open-l">Continue reading</span><span class="close-l">Show less</span></summary><div class="story"><p>People elsewhere made different agreements.</p><p class="beat">That realization can be intoxicating.</p><p class="beat">Then the month ended.</p><p class="beat">Austria.</p><p class="beat">University.</p><p class="beat">Reality.</p><p>I returned to a world in which I increasingly felt that every interaction contained a hidden transaction.</p><p class="beat">Meet people.</p><p class="beat">Make connections.</p><p class="beat">Build a network.</p><p class="beat">Become visible.</p><p class="beat">Create opportunities.</p><p class="beat">Turn your art into work.</p><p class="beat">Turn your work into money.</p><p>Turn yourself into someone other people might want to hire.</p><p>Perhaps others were simply better at accepting this. I wasn't.</p><p class="beat">Something inside me resisted.</p><p>I had loved creating precisely because I disappeared while doing it. Now I was supposed to build an identity around being the person who created.</p><p class="beat">I was supposed to explain my work.</p><p class="beat">Sell my work.</p><p class="beat">Sell myself.</p><p>The more consciously I tried to become an artist, the further away I seemed to move from the girl making useless sculptures from flowers.</p><p>The spirit disappeared when I tried to capture it.</p><p>Eventually the pressure became physical.</p><p>The weight of fitting in sat on my chest.</p><p class="beat">I couldn't breathe.</p><p>And one day, I couldn't go there anymore.</p><p class="beat">So I quit.</p><p class="beat">There was no triumphant music.</p><p>No cinematic certainty that I had chosen freedom.</p><p class="beat">Mostly there was fear.</p><p>Because leaving something does not automatically tell you where to go.</p><p>I had failed to finish the path I had chosen.</p><p class="beat">Now what?</p><p class="beat">Austria suddenly felt very small.</p><p>Every familiar place seemed connected to a version of myself I no longer knew how to inhabit.</p><p>Spain was still somewhere in my mouth: salt, Spanish words, warm nights, the discovery that reality had alternatives.</p><p class="beat">I wanted distance.</p><p class="beat">Not metaphorical distance.</p><p class="beat">Kilometers.</p><p class="beat">An ocean.</p><p class="beat">Somewhere nobody knew me.</p><p>Somewhere my past could not explain me before I had even opened my mouth.</p><p class="beat">I chose Panama.</p><p class="beat">I had little money.</p><p class="beat">No real plan.</p><p class="beat">No clear timeline.</p><p>It sounds courageous when told backwards.</p><p>At the time, I think I was simply unable to remain where I was.</p><p>Sometimes we call something bravery because we survived it.</p><p>Sometimes escape and courage are the same movement seen from opposite sides.</p></div></details>
+  </div>
+</section>
+<section class="chapter flip reveal" id="ch4">
+  <div class="ch-media"><figure class="fig"><button class="zoom" aria-label="Enlarge: Home was a hammock"><img src="images/ch4-hammock-selfie.jpg" alt="Home was a hammock" loading="lazy" decoding="async"></button><figcaption>Home was a hammock</figcaption></figure><figure class="fig"><button class="zoom" aria-label="Enlarge: Into the cloud forest"><img src="images/ch4-bridge.jpg" alt="Into the cloud forest" loading="lazy" decoding="async"></button><figcaption>Into the cloud forest</figcaption></figure></div>
+  <div class="ch-head">
+    <p class="ch-num">Chapter IV · <span>Panama</span></p>
+    <h2>Becoming the Stranger</h2>
+    <blockquote>Not knowing. Going anyway.</blockquote>
+  </div>
+  <div class="ch-text">
+    <div class="story"><p class="beat">Panama removed my vocabulary.</p><p class="beat">That was one of its first gifts.</p><p>I slept in a hammock in gardens and on hostel rooftops because I wanted my savings to last. The cheapest places had another advantage: there were fewer Europeans and Americans.</p><p>Around me were travelers from Latin America.</p><p class="beat">They spoke Spanish.</p><p class="beat">Fast Spanish.</p><p class="beat">Real Spanish.</p><p>Nothing like the patient sentences of a language classroom.</p><p>If I wanted to enter their world, I had to learn.</p></div>
+    <details class="more"><summary><span class="open-l">Continue reading</span><span class="close-l">Show less</span></summary><div class="story"><p class="beat">So I listened.</p><p>At first, conversations moved around me like rivers. I caught individual words floating past but could not grasp the whole current.</p><p>It is strange to become stupid in another language.</p><p>Your personality remains intact inside you, but suddenly you cannot demonstrate it.</p><p>You may have complex thoughts and only possess the vocabulary to say:</p><p class="beat"><em>I like this.</em></p><p class="beat"><em>I don't understand.</em></p><p class="beat"><em>Where is the bus?</em></p><p class="beat">Language had always seemed like a tool.</p><p>Now I understood that it was also identity.</p><p class="beat">Without it, I became quieter.</p><p>I was already shy, and now every conversation required courage.</p><p class="beat">Sometimes I forced myself to speak.</p><p class="beat">Often I didn't.</p><p>I searched for solitude because alone I did not have to prove that I was interesting or intelligent or capable.</p><p class="beat">Nobody expected an explanation.</p><p class="beat">There was relief in being unknown.</p><p class="beat">But loneliness has two faces.</p><p class="beat">One is emptiness.</p><p class="beat">The other is freedom.</p><p>I began traveling deeper into a world I could barely understand. I slept in my hammock. I hitchhiked. I walked through jungle. I spent time with locals whose conversations often left me smiling several seconds too late.</p><p>My legs became covered in mosquito bites.</p><p class="beat">I scratched them.</p><p class="beat">Of course I scratched them.</p><p class="beat">Then my foot became infected.</p><p>On a remote island in Bocas del Toro, it swelled until adventure stopped looking romantic and started looking stupid.</p><p class="beat">I needed a doctor.</p><p class="beat">I wasn't eating properly.</p><p class="beat">I was improvising almost everything.</p><p>Travel is often edited afterwards. Memory removes the sweat, the fear, the diarrhea, the dirty clothes, the moments of sitting somewhere thinking:</p><p class="beat">What the hell am I doing?</p><p class="beat">We keep the sunset.</p><p>But transformation rarely happens only during sunsets.</p><p>Sometimes it happens while looking at your enormous infected foot and realizing that freedom does not mean escaping consequences.</p><p class="beat">I returned to Panama City.</p><p class="beat">In a hostel I met some Colombians.</p><p class="beat">Colombia.</p><p>Until then it had barely existed in my imagination.</p><p class="beat">The next day, I stepped onto a plane.</p><p class="beat">This was becoming my method.</p><p class="beat">Not knowing.</p><p class="beat">Going anyway.</p></div></details>
+  </div>
+</section>
+<section class="chapter  reveal" id="ch5">
+  <div class="ch-media"><figure class="fig"><button class="zoom" aria-label="Enlarge: Tayrona — watercolour"><img src="images/ch5-tayrona.jpg" alt="Tayrona — watercolour" loading="lazy" decoding="async"></button><figcaption>Tayrona — watercolour</figcaption></figure><figure class="fig"><button class="zoom" aria-label="Enlarge: Painting on the beach, Colombia"><img src="images/ch5-sketching-beach.jpg" alt="Painting on the beach, Colombia" loading="lazy" decoding="async"></button><figcaption>Painting on the beach, Colombia</figcaption></figure><figure class="fig"><button class="zoom" aria-label="Enlarge: The sketchbook meets the view"><img src="images/ch5-tayrona-sketch.jpg" alt="The sketchbook meets the view" loading="lazy" decoding="async"></button><figcaption>The sketchbook meets the view</figcaption></figure></div>
+  <div class="ch-head">
+    <p class="ch-num">Chapter V · <span>Colombia · The Amazon</span></p>
+    <h2>The Geography of Otherness</h2>
+    <blockquote>There are worlds we enter as guests.</blockquote>
+  </div>
+  <div class="ch-text">
+    <div class="story"><p class="beat">Colombia opened slowly.</p><p class="beat">First through beaches.</p><p class="beat">Then roads.</p><p class="beat">Then people.</p><p class="beat">Then language.</p><p>My Spanish improved because life demanded that it improve. Every new word gave me access to another room inside the culture.</p><p class="beat">I camped on remote beaches.</p><p>I volunteered in Medellín, painting a hostel in exchange for somewhere to sleep.</p><p class="beat">Paint had returned to my hands.</p></div>
+    <details class="more"><summary><span class="open-l">Continue reading</span><span class="close-l">Show less</span></summary><div class="story"><p class="beat">But something had changed.</p><p>At university, art had become entangled with judgment. Was it original enough? Sophisticated enough? Correct enough?</p><p class="beat">Here, a wall simply needed painting.</p><p class="beat">My hands moved.</p><p class="beat">Color covered a surface.</p><p class="beat">For a while, that was enough.</p><p class="beat">Then I traveled toward the Amazon.</p><p>The further I went, the more ridiculous some of my old certainties became.</p><p>Europe likes to imagine itself as the center from which the rest of the world is measured. Developed. Educated. Organized. Modern.</p><p>These words contain entire philosophies disguised as neutral descriptions.</p><p>In the Amazon, I stayed and volunteered at a hotel embedded within an Indigenous community. They offered a kind of communal living experience, and I helped with social media so they could attract more guests.</p><p class="beat">There was irony in it.</p><p>I had fled a world obsessed with selling itself, only to find myself helping another world become visible to that same economy.</p><p>How do you share a culture without turning it into a product?</p><p>How does a community participate in tourism without becoming scenery?</p><p>How do you invite outsiders to witness another way of living without teaching them to consume it?</p><p class="beat">I had no answers.</p><p class="beat">I still don't.</p><p>I attended a tribal gathering with members of the community.</p><p class="beat">I watched more than I spoke.</p><p>Travel had begun teaching me something uncomfortable: curiosity does not automatically give us the right to understand everything.</p><p class="beat">There are worlds we enter as guests.</p><p>There are things that do not become ours simply because we witnessed them.</p><p>The young woman who had left Austria searching for herself was beginning to discover the limits of that idea.</p><p>Perhaps the world did not exist to help me find myself.</p><p>Perhaps other cultures were not mirrors for my transformation.</p><p>They were whole realities before I arrived and would remain whole after I left.</p><p>That realization made travel less romantic.</p><p class="beat">And more meaningful.</p><p>I had started this journey wanting to escape the feeling of being judged.</p><p>Now I was learning to stop making myself the center of every room.</p></div></details>
+  </div>
+</section>
+<section class="chapter flip reveal" id="ch6">
+  <div class="ch-media"><figure class="fig"><button class="zoom" aria-label="Enlarge: Bird energy — acrylic"><img src="images/ch6-bird.jpg" alt="Bird energy — acrylic" loading="lazy" decoding="async"></button><figcaption>Bird energy — acrylic</figcaption></figure><figure class="fig"><button class="zoom" aria-label="Enlarge: Somewhere along the way"><img src="images/ch6-murals.jpg" alt="Somewhere along the way" loading="lazy" decoding="async"></button><figcaption>Somewhere along the way</figcaption></figure></div>
+  <div class="ch-head">
+    <p class="ch-num">Chapter VI · <span>Peru · Bolivia · Argentina</span></p>
+    <h2>A Continent Without an Ending</h2>
+    <blockquote>Maybe home appears briefly whenever you stop defending who you are.</blockquote>
+  </div>
+  <div class="ch-text">
+    <div class="story"><p class="beat">I left the Amazon by boat.</p><p>For part of the journey toward Peru, I slept on deck.</p><p class="beat">Above me, the sky.</p><p class="beat">Around me, water.</p><p>The river was so large that sometimes it seemed less like a river than a moving geography.</p><p>I had spent years believing a life needed direction.</p><p>On the Amazon, direction became wonderfully primitive.</p><p class="beat">The boat moved forward.</p><p class="beat">So did I.</p></div>
+    <details class="more"><summary><span class="open-l">Continue reading</span><span class="close-l">Show less</span></summary><div class="story"><p class="beat">Peru unfolded.</p><p class="beat">Then Arequipa.</p><p class="beat">Lake Titicaca.</p><p class="beat">Bolivia.</p><p>The enormous white silence of Salar de Uyuni, where earth and sky seem to negotiate their border.</p><p class="beat">Then Argentina.</p><p>My map kept expanding while my possessions remained small.</p><p>There is a particular freedom in realizing how little you actually need.</p><p class="beat">A place to sleep.</p><p class="beat">Something to eat.</p><p class="beat">Water.</p><p class="beat">A few clothes.</p><p class="beat">Someone to talk to.</p><p class="beat">Maybe a guitar.</p><p>We spend much of modern life constructing complicated systems around remarkably simple human needs.</p><p>We acquire things to feel secure, status to feel valuable, schedules to feel purposeful.</p><p>Then sometimes you find yourself sitting beside a river in Argentina with friends, passing around mate while somebody plays guitar, and for a moment there is nothing missing.</p><p class="beat">Nothing needs improving.</p><p>Nobody needs to become more successful before the evening can begin.</p><p>I had encountered another relationship with time.</p><p>In Austria, time had often felt like something moving toward a destination.</p><p class="beat">Graduation.</p><p class="beat">Career.</p><p class="beat">Next step.</p><p class="beat">Progress.</p><p class="beat">Here, time sometimes became circular.</p><p class="beat">Prepare the mate.</p><p class="beat">Pass it.</p><p class="beat">Play another song.</p><p class="beat">Talk.</p><p class="beat">Be silent.</p><p class="beat">Pass it again.</p><p>Perhaps that is why some cultures seem chaotic to people raised inside strict schedules. We confuse control with order.</p><p>But a life can possess another kind of order.</p><p>An order built around relationships rather than clocks.</p><p>Around presence rather than productivity.</p><p>I thought I had left Austria because I couldn't find my place there.</p><p>But somewhere between Panama and Argentina, the question itself had changed.</p><p class="beat">Maybe a person does not have one place.</p><p class="beat">Maybe belonging is not geographical.</p><p>Maybe home is not where you fit perfectly.</p><p>Maybe home appears briefly whenever you stop defending who you are.</p><p>By the river, guitar in someone's hands, mate moving between us, I felt no urgency to define myself.</p><p>And then a message arrived from another world.</p><p class="beat">My grandfather was dying.</p><p>Suddenly Europe was not a system I had escaped.</p><p class="beat">It was home.</p><p class="beat">And someone I loved was leaving it.</p></div></details>
+  </div>
+</section>
+<section class="chapter  reveal" id="ch7">
+  <div class="ch-media"><figure class="fig"><button class="zoom" aria-label="Enlarge: Winter landscape — watercolour"><img src="images/ch7-winter.jpg" alt="Winter landscape — watercolour" loading="lazy" decoding="async"></button><figcaption>Winter landscape — watercolour</figcaption></figure><figure class="fig"><button class="zoom" aria-label="Enlarge: Hallstatt — watercolour"><img src="images/ch7-hallstatt.jpg" alt="Hallstatt — watercolour" loading="lazy" decoding="async"></button><figcaption>Hallstatt — watercolour</figcaption></figure></div>
+  <div class="ch-head">
+    <p class="ch-num">Chapter VII · <span>Back to Austria</span></p>
+    <h2>The Road Back</h2>
+    <blockquote>Sometimes fear simply means: there is no map for what happens next.</blockquote>
+  </div>
+  <div class="ch-text">
+    <div class="story"><p class="beat">Death changes geography.</p><p>A continent that had felt impossibly far away suddenly became the only place I needed to be.</p><p class="beat">I returned to Austria.</p><p class="beat">The traveler came home.</p><p>But homecoming is not the opposite of leaving.</p><p>You return to familiar streets with unfamiliar eyes.</p><p>Everything is almost exactly where it was, which somehow makes the changes inside you more visible.</p><p class="beat">The forest was still a forest.</p><p class="beat">The houses were still houses.</p></div>
+    <details class="more"><summary><span class="open-l">Continue reading</span><span class="close-l">Show less</span></summary><div class="story"><p class="beat">People continued their lives.</p><p class="beat">And my grandfather was dying.</p><p class="beat">Travel had taught me movement.</p><p class="beat">Death taught me the limit of movement.</p><p>There are things we cannot escape by crossing borders.</p><p>There are departures for which nobody buys a return ticket.</p><p>Afterwards, I tried to do what people do.</p><p class="beat">Find work.</p><p class="beat">Become practical.</p><p class="beat">Re-enter life.</p><p>I sat in Austria searching online for jobs, the enormous continent I had crossed reduced again to a screen in front of me.</p><p class="beat">Then I found something.</p><p class="beat">A job teaching German.</p><p class="beat">In Mexico.</p><p class="beat">I had never been to Mexico.</p><p class="beat">Naturally, I accepted.</p><p>Looking back, there was almost a pattern to my decisions by then.</p><p>The unknown no longer frightened me in the same way.</p><p class="beat">The known did.</p><p>Certainty had once represented safety. Now too much certainty felt like a room without windows.</p><p>Perhaps travel had changed my nervous system.</p><p>Perhaps I had learned that fear does not necessarily mean <em>stop</em>.</p><p class="beat">Sometimes fear simply means:</p><p class="beat">there is no map for what happens next.</p><p class="beat">So I packed again.</p><p class="beat">Another flight.</p><p class="beat">Another country.</p><p>Another language that was no longer entirely foreign.</p><p>I thought I was going to Mexico for a job.</p><p>Life rarely tells us what we are actually arriving for.</p></div></details>
+  </div>
+</section>
+<section class="chapter flip reveal" id="ch8">
+  <div class="ch-media"><figure class="fig"><button class="zoom" aria-label="Enlarge: Zócalo, Mexico City — ink &amp; watercolour"><img src="images/ch8-zocalo.jpg" alt="Zócalo, Mexico City — ink &amp; watercolour" loading="lazy" decoding="async"></button><figcaption>Zócalo, Mexico City — ink &amp; watercolour</figcaption></figure><figure class="fig"><button class="zoom" aria-label="Enlarge: Mexico City — ink &amp; watercolour"><img src="images/ch8-mexico-city.jpg" alt="Mexico City — ink &amp; watercolour" loading="lazy" decoding="async"></button><figcaption>Mexico City — ink &amp; watercolour</figcaption></figure><figure class="fig"><button class="zoom" aria-label="Enlarge: Cenote — painted on site"><img src="images/ch8-cenote.jpg" alt="Cenote — painted on site" loading="lazy" decoding="async"></button><figcaption>Cenote — painted on site</figcaption></figure><figure class="fig"><button class="zoom" aria-label="Enlarge: Sun stone — relief"><img src="images/ch8-calendar.jpg" alt="Sun stone — relief" loading="lazy" decoding="async"></button><figcaption>Sun stone — relief</figcaption></figure></div>
+  <div class="ch-head">
+    <p class="ch-num">Chapter VIII · <span>Mexico</span></p>
+    <h2>The Country That Asked Me to Stay</h2>
+    <blockquote>Identity was not a room with only one chair.</blockquote>
+  </div>
+  <div class="ch-text">
+    <div class="story"><p class="beat">Mexico did not enter my life quietly.</p><p class="beat">There was color.</p><p class="beat">Noise.</p><p class="beat">Food.</p><p class="beat">Heat.</p><p class="beat">Contradiction.</p><p>Death painted in bright colors. Religion beside irreverence. Ancient civilizations beneath modern streets. Family woven tightly into everyday life.</p><p class="beat">I fell in love quickly.</p><p class="beat">First with the food, perhaps.</p></div>
+    <details class="more"><summary><span class="open-l">Continue reading</span><span class="close-l">Show less</span></summary><div class="story"><p class="beat">Then with everything around it.</p><p class="beat">Because food is never only food.</p><p class="beat">A tortilla carries geography.</p><p class="beat">A recipe carries migration.</p><p>A table carries hierarchy, affection, memory, gender, family.</p><p class="beat">Who cooks.</p><p class="beat">Who serves.</p><p class="beat">Who receives the first plate.</p><p class="beat">How long everyone remains after eating.</p><p class="beat">Culture lives in these tiny gestures.</p><p>I had traveled through Latin America as an outsider. Mexico was different because I stopped passing through.</p><p class="beat">Days became months.</p><p class="beat">Months became years.</p><p class="beat">Six of them.</p><p>There is a profound difference between visiting a culture and allowing it to change your ordinary life.</p><p class="beat">Travel gives you intensity.</p><p>Living somewhere gives you Tuesday mornings.</p><p class="beat">Bills.</p><p class="beat">Coworkers.</p><p class="beat">Arguments.</p><p class="beat">Friendships that survive bad moods.</p><p class="beat">Favorite places that stop being exotic.</p><p>Words you no longer translate before understanding them.</p><p>I taught German, which amused me sometimes.</p><p>I had traveled across an ocean partly to escape the world I came from, only to make a living teaching its language.</p><p class="beat">Austria had followed me.</p><p class="beat">Of course it had.</p><p class="beat">We carry our cultures inside us.</p><p>They appear when someone is twenty minutes late.</p><p class="beat">When we discuss money.</p><p class="beat">When we raise children.</p><p>When we disagree about what "clean" means.</p><p>When we decide how directly something should be said.</p><p>Culture becomes most visible in friction.</p><p>And slowly I understood that becoming part of another country did not require me to stop being Austrian.</p><p>Identity was not a room with only one chair.</p><p class="beat">There could be several.</p><p>Then I met someone who would make that idea much more complicated.</p><p class="beat">And much more beautiful.</p><p class="beat">A Mexican man became part of my life.</p><p class="beat">Eventually, my husband.</p><p>The journey that had begun as an escape from belonging led me directly into commitment.</p></div></details>
+  </div>
+</section>
+<section class="chapter  reveal" id="ch9">
+  <div class="ch-media"><figure class="fig"><button class="zoom" aria-label="Enlarge: Love is another country"><img src="images/ch9-beach.jpg" alt="Love is another country" loading="lazy" decoding="async"></button><figcaption>Love is another country</figcaption></figure></div>
+  <div class="ch-head">
+    <p class="ch-num">Chapter IX · <span>Mexico → Europe</span></p>
+    <h2>Love Is Another Country</h2>
+    <blockquote>Perhaps intimacy itself is the willingness to keep translating.</blockquote>
+  </div>
+  <div class="ch-text">
+    <div class="story"><p>We often describe love as finding someone.</p><p>But love is also encountering an entire world that existed before you arrived.</p><p class="beat">My husband did not come alone.</p><p class="beat">Neither did I.</p><p>Behind each of us stood families, histories, habits, foods, jokes, wounds, assumptions.</p><p class="beat">Austria sat at the table with Mexico.</p><p class="beat">Sometimes they got along beautifully.</p><p>Sometimes they stared at each other in complete confusion.</p><p>Cross-cultural love makes visible all the things we mistake for personality.</p></div>
+    <details class="more"><summary><span class="open-l">Continue reading</span><span class="close-l">Show less</span></summary><div class="story"><p>You think, <em>This is simply how things are done.</em></p><p>Your partner thinks exactly the same thing.</p><p>And the two versions are completely different.</p><p class="beat">Who should call whom?</p><p>How much time should family spend together?</p><p class="beat">What counts as being on time?</p><p class="beat">What should remain private?</p><p class="beat">How should anger be expressed?</p><p class="beat">What does responsibility look like?</p><p class="beat">What does home taste like?</p><p class="beat">Love becomes translation.</p><p class="beat">Not only between languages.</p><p class="beat">Between worlds.</p><p class="beat">Sometimes translation fails.</p><p class="beat">Sometimes the wrong meaning arrives.</p><p class="beat">Sometimes there is no exact equivalent.</p><p>But perhaps intimacy itself is the willingness to keep translating.</p><p>I had spent years running toward freedom.</p><p class="beat">Marriage asked another question.</p><p class="beat">Could freedom exist inside commitment?</p><p class="beat">Could I belong without disappearing?</p><p>Could I love someone without constructing another set of walls around myself?</p><p>When I was younger, I thought freedom meant having no ties.</p><p class="beat">The hammock.</p><p class="beat">The road.</p><p class="beat">No plan.</p><p>Nobody knowing where I would be next month.</p><p>But eventually I began to understand another kind of freedom.</p><p class="beat">The freedom to stay.</p><p>The freedom to choose a person again after the intoxication of newness has passed.</p><p>The freedom of being known and not immediately running away.</p><p>After six years in Mexico, we decided to return to Europe together.</p><p class="beat">Once again I packed my life.</p><p>Except this time I wasn't escaping alone.</p><p>This time I was bringing another world with me.</p></div></details>
+  </div>
+</section>
+<section class="chapter flip reveal" id="ch10">
+  <div class="ch-media"><figure class="fig"><button class="zoom" aria-label="Enlarge: Learning — ink &amp; watercolour"><img src="images/ch10-learning.jpg" alt="Learning — ink &amp; watercolour" loading="lazy" decoding="async"></button><figcaption>Learning — ink &amp; watercolour</figcaption></figure><figure class="fig"><button class="zoom" aria-label="Enlarge: Flower with bird — watercolour"><img src="images/ch10-flower-bird.jpg" alt="Flower with bird — watercolour" loading="lazy" decoding="async"></button><figcaption>Flower with bird — watercolour</figcaption></figure></div>
+  <div class="ch-head">
+    <p class="ch-num">Chapter X · <span>Europe · Home</span></p>
+    <h2>The Forest Is Still There</h2>
+    <blockquote>Maybe the longest journey was the one that brought me back to it.</blockquote>
+  </div>
+  <div class="ch-text">
+    <div class="story"><p>Returning to Europe did not complete the circle.</p><p>I don't think circles are ever completed.</p><p>We like stories with clean shapes because life itself rarely provides them.</p><p class="beat">Leave.</p><p class="beat">Discover yourself.</p><p class="beat">Return transformed.</p><p class="beat">End.</p><p class="beat">But there is no end.</p><p class="beat">There is Tuesday morning.</p></div>
+    <details class="more"><summary><span class="open-l">Continue reading</span><span class="close-l">Show less</span></summary><div class="story"><p class="beat">There is the next decision.</p><p class="beat">There are relationships.</p><p class="beat">There is work.</p><p>There are old fears wearing new clothes.</p><p>There are questions you thought you had answered returning ten years later with better vocabulary.</p><p>I once believed my journey was about finding where I belonged.</p><p class="beat">Austria?</p><p class="beat">Spain?</p><p class="beat">Panama?</p><p class="beat">Colombia?</p><p class="beat">Mexico?</p><p class="beat">Europe?</p><p>Now I suspect belonging was never the real question.</p><p>The deeper question was whether I could remain myself while belonging somewhere.</p><p class="beat">As a child, I knew how.</p><p>I could sit in grass for hours without wondering what the grass thought of me.</p><p>Then I grew older and entered the human world of judgment.</p><p class="beat">I tried to become an artist.</p><p class="beat">I tried to become acceptable.</p><p class="beat">I tried to become independent.</p><p class="beat">I tried to become free.</p><p class="beat">I crossed an ocean.</p><p class="beat">Then borders.</p><p class="beat">Then languages.</p><p>I slept in hammocks and hostels, on beaches and boats. I scratched mosquito bites until my foot became infected. I painted walls. I entered communities where I understood very little. I crossed salt flats. I drank mate beside rivers. I returned for death. I left again for work. I fell in love with a country. Then with a person.</p><p>For years I thought movement was changing me.</p><p class="beat">Perhaps it was stripping things away.</p><p class="beat">The need to be correct.</p><p class="beat">The need to have a plan.</p><p>The idea that there is only one respectable way to construct a life.</p><p>The belief that identity must be singular.</p><p>The belief that freedom means being unattached.</p><p class="beat">The belief that home must be one place.</p><p class="beat">Travel did not give me answers.</p><p class="beat">It made some of my questions obsolete.</p><p>And underneath them, strangely, I find the forest again.</p><p class="beat">The child is still there.</p><p class="beat">Her hands smell of grass.</p><p class="beat">She has flowers for her mother.</p><p>She is building a tiny world from branches, completely absorbed in something that will not survive the afternoon.</p><p class="beat">She does not know about careers.</p><p class="beat">She does not know about Latin America.</p><p>She does not know she will quit university, cross an ocean, learn another language, sleep on the Amazon, lose her grandfather, teach German in Mexico or marry a man born on the other side of the world.</p><p class="beat">She doesn't need to know.</p><p>For once, the future is not asking anything from her.</p><p>And perhaps this is what I crossed all those countries to understand:</p><p>A meaningful life is not necessarily a life in which you finally discover who you are.</p><p>Perhaps it is a life in which you become less afraid of not knowing.</p><p>A life in which curiosity becomes stronger than certainty.</p><p>A life in which you can enter another person's world without needing to own it.</p><p>A life in which you can leave without always escaping.</p><p class="beat">Stay without becoming trapped.</p><p class="beat">Love without disappearing.</p><p class="beat">Create without proving.</p><p class="beat">Feel without apologizing.</p><p>And occasionally, even as an adult, sit somewhere long enough to forget the time.</p><p class="beat">The forest is still there.</p><p class="beat">Maybe it always was.</p><p>Maybe the longest journey was the one that brought me back to it.</p></div></details>
+  </div>
+</section>
+
+<section class="gallery" id="sketchbook">
+  <div class="gallery-inner">
+    <p class="kicker">From the sketchbook</p>
+    <h2>Painted along the way</h2>
+    <p class="sub">Wherever I go, the sketchbook comes too — painted on location, from Rome to the Caribbean.</p>
+    <div class="grid"><figure class="g"><button class="zoom" aria-label="Enlarge: Rome"><img src="images/g-colosseo.jpg" alt="Rome — painting by Angelica Forster" loading="lazy" decoding="async"></button><figcaption>Rome</figcaption></figure><figure class="g"><button class="zoom" aria-label="Enlarge: Innsbruck"><img src="images/g-innsbruck.jpg" alt="Innsbruck — painting by Angelica Forster" loading="lazy" decoding="async"></button><figcaption>Innsbruck</figcaption></figure><figure class="g"><button class="zoom" aria-label="Enlarge: Miami"><img src="images/g-miami.jpg" alt="Miami — painting by Angelica Forster" loading="lazy" decoding="async"></button><figcaption>Miami</figcaption></figure><figure class="g"><button class="zoom" aria-label="Enlarge: Chia, Sardinia"><img src="images/g-chia.jpg" alt="Chia, Sardinia — painting by Angelica Forster" loading="lazy" decoding="async"></button><figcaption>Chia, Sardinia</figcaption></figure><figure class="g"><button class="zoom" aria-label="Enlarge: Taj Mahal"><img src="images/g-tajmahal.jpg" alt="Taj Mahal — painting by Angelica Forster" loading="lazy" decoding="async"></button><figcaption>Taj Mahal</figcaption></figure><figure class="g"><button class="zoom" aria-label="Enlarge: Sardinia"><img src="images/g-sardinia.jpg" alt="Sardinia — painting by Angelica Forster" loading="lazy" decoding="async"></button><figcaption>Sardinia</figcaption></figure><figure class="g"><button class="zoom" aria-label="Enlarge: Innsbruck café"><img src="images/g-innsbruck-cafe.jpg" alt="Innsbruck café — painting by Angelica Forster" loading="lazy" decoding="async"></button><figcaption>Innsbruck café</figcaption></figure><figure class="g"><button class="zoom" aria-label="Enlarge: Vietnam"><img src="images/g-vietnam.jpg" alt="Vietnam — painting by Angelica Forster" loading="lazy" decoding="async"></button><figcaption>Vietnam</figcaption></figure></div>
+  </div>
+</section>
+
+<section class="end reveal">
+  <p class="big">The forest is still there.<br><em>Maybe it always was.</em></p>
+  <p class="by">— Angelica Forster</p>
+</section>
+</main>
+
+<footer>Text and artwork © <span id="yr">2026</span> Angelica Forster. All rights reserved.</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="x" id="lbx" aria-label="Close">×</button>
+  <img id="lbimg" alt="">
+  <p id="lbcap"></p>
+</div>
+
+<script>
+(function(){
+  var bar=document.getElementById('bar'), prog=document.getElementById('progress');
+  function onScroll(){
+    var y=window.scrollY, h=document.documentElement.scrollHeight-innerHeight;
+    bar.classList.toggle('solid', y>innerHeight*0.6);
+    prog.style.width=(h>0?(y/h*100):0)+'%';
+  }
+  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.08});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  } else document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+
+  var lb=document.getElementById('lb'), li=document.getElementById('lbimg'), lc=document.getElementById('lbcap'), last;
+  document.querySelectorAll('.zoom').forEach(function(b){
+    b.addEventListener('click',function(){
+      var im=b.querySelector('img'); last=b;
+      li.src=im.src; li.alt=im.alt;
+      var fc=b.parentNode.querySelector('figcaption'); lc.textContent=fc?fc.textContent:'';
+      lb.classList.add('open'); document.getElementById('lbx').focus();
+    });
+  });
+  function close(){lb.classList.remove('open'); if(last) last.focus();}
+  lb.addEventListener('click',function(e){if(e.target!==li) close();});
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('open')) close();});
+
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
